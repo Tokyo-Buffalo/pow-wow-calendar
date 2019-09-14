@@ -17,9 +17,11 @@
     "ts-loader": "^6.1.0",
     "ts-node-dev": "^1.0.0-pre.42",
     "typescript": "^3.6.3",
-    "webpack": "^4.40.2"
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.8"
   },
   "scripts": {
+    "dev:client": "node_modules/.bin/webpack-cli",
     "dev:server": "node_modules/.bin/ts-node-dev --respawn --transpileOnly server/index.ts"
   },
   "repository": {

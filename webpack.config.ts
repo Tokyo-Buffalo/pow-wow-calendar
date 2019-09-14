@@ -6,7 +6,7 @@ export default ({
   entry: './client/src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'foo.bundle.js'
+    filename: 'build.js'
   },
   watch: true, 
   resolve: {
@@ -16,7 +16,7 @@ export default ({
     rules: [{
       test: /\.tsx?$/,
       use: "ts-loader",
-      exclude: /\.test.tsx?$/,=
+      exclude: /\.test.tsx?$/
     }]
   }
 });
