@@ -1,0 +1,33 @@
+{
+  "name": "pow-wow-calendar",
+  "version": "0.0.1",
+  "description": "Find local pow wow events ",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.6.3",
+    "webpack": "^4.40.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tokyo-Buffalo/pow-wow-calendar.git"
+  },
+  "keywords": [
+    "pow",
+    "wow",
+    "calendar"
+  ],
+  "author": "Tokyo Buffalo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tokyo-Buffalo/pow-wow-calendar/issues"
+  },
+  "homepage": "https://github.com/Tokyo-Buffalo/pow-wow-calendar#readme"
+}
