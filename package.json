@@ -18,7 +18,7 @@
     "webpack": "^4.40.2"
   },
   "scripts": {
-    "dev:server": "node_modules/.bin/ts-node-dev server/index.ts"
+    "dev:server": "node_modules/.bin/ts-node-dev --respawn --transpileOnly server/index.ts"
   },
   "repository": {
     "type": "git",
