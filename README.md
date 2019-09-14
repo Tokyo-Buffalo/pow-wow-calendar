@@ -9,3 +9,7 @@ Then, start the API server:
 ```
 npm run dev:server
 ```
+And the client:
+```
+npm run dev:client
+```
