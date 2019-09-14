@@ -1,5 +1,6 @@
 import path from "path";
 import webpack from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 export default ({
   mode: "development",
@@ -18,5 +19,10 @@ export default ({
       use: "ts-loader",
       exclude: /\.test.tsx?$/
     }]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "assets/index.html")
+    })
+  ]
 });
