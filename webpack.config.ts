@@ -3,11 +3,15 @@ import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
 export default ({
-  mode: "development",
-  entry: './client/src/index.tsx',
+  mode: "development" as "development",
+  entry: [
+    "webpack-hot-middleware/client", 
+    "react-hot-loader/patch",
+    "./client/src/index.tsx"
+  ],
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'build.js'
+    path: path.resolve(__dirname, "dist"),
+    filename: "build.js"
   },
   watch: true, 
   resolve: {
@@ -23,6 +27,7 @@ export default ({
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "assets/index.html")
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 });
