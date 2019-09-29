@@ -12,7 +12,10 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-hot-loader": "^4.12.13",
-    "redis": "^2.8.0"
+    "react-redux": "^7.1.1",
+    "redis": "^2.8.0",
+    "redux": "^4.0.4",
+    "redux-ts-utils": "^3.2.2"
   },
   "devDependencies": {
     "@types/connect-redis": "0.0.11",

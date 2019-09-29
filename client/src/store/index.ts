@@ -19,6 +19,6 @@ const reducer = reduceReducers<State>([
   handleAction(setUserLoginStatus, (state, { payload }) => {
     state.user.isLoggedIn = payload;
   })
-]);
+], initialState);
 
 export const store: Store<State> = createStore(reducer);
