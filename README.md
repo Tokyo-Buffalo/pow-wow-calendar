@@ -22,3 +22,16 @@ And the client:
 ```
 npm run dev:client
 ```
+
+### Creating the database
+
+You're going to need to create your own database. You can do that by entering the following comamnds:
+
+```
+// this will take you to postgres
+psql
+
+// once you are in postgres
+
+CREATE DATABASE powwowcalendar;
+```
