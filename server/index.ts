@@ -7,7 +7,9 @@ import connect from "connect-redis";
 import session from "express-session";
 import { config as getDotEnvConfig } from "dotenv";
 import webpackConfig from "../webpack.config";
-import webpackMiddleware from "webpack-dev-middleware";
+import passport from "passport";
+
+import "./passport";
 
 const app = express();
 const port = 3000;
@@ -31,11 +33,13 @@ app.use(middleware(compiler, {
   publicPath: "/__what",
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(require("webpack-hot-middleware")(compiler));
 
-app.get("/auth/google", (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
-});
+app.get("/auth/google/register",
+  passport.authenticate("google", { scope: ["openid email"] })
+);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
