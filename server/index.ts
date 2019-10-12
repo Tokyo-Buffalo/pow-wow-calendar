@@ -24,12 +24,21 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: true }
 }));
+
 app.use("/", express.static(path.join(__dirname, "../dist")));
+
 app.use(middleware(compiler, {
   publicPath: "/__what",
 }));
+
 app.use(require("webpack-hot-middleware")(compiler));
+
+app.get("/auth/google", (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+export { app };
