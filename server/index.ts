@@ -37,7 +37,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(require("webpack-hot-middleware")(compiler));
 
-app.get("/auth/google/register",
+app.get("/auth/google",
   passport.authenticate("google", { scope: ["openid email"] })
 );
 
