@@ -8,7 +8,7 @@ const queryText = `
     picture VARCHAR(128) NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
     modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    is_admin BOOL DEFAULT FALSE,
+    is_admin BOOL DEFAULT FALSE
   )`;
 
 export default (async () => {

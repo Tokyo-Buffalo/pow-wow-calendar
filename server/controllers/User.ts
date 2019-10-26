@@ -39,4 +39,24 @@ export class User {
       console.error("Could not check if user exists", error);
     }
   }
+
+  /**
+   * 
+   * @param id the sub (from google response)
+   * @param email 
+   * @param picture the image src url 
+   * 
+   * @returns a query if successful
+   */
+  async createUser(id: string, email: string, picture: string) {
+    const createUserQuery = "INSERT INTO users(id, email, picture) VALUES($1, $2, $3) RETURNING *;";
+
+    try {
+      const user = await pool.query(createUserQuery, [id, email, picture]);
+      console.log("hiiiiiiiiiiiiiii", user);
+    } catch (error) {
+      console.error("Could not create user", error);
+      return error;
+    }
+  }
 }

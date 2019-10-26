@@ -1,4 +1,5 @@
 import passport from "passport";
+import { User } from "./controllers/User";
 import { OAuth2Strategy } from "passport-google-oauth";
 import { config as loadDotenvConfig } from "dotenv";
 
@@ -17,10 +18,18 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-      callbackURL: `${process.env.BASE_URI}/auth/google/register/callback`,
+      callbackURL: `${process.env.BASE_URI}/auth/google/callback`,
       userProfileURL: 'https://www.googleapis.com/oauth2/v3/userinfo',
     },
     async function(token: any, tokenSecret: any, profile: any, done: any) {
+      const { sub, email, picture } = profile._json;
+      const user = User.getInstance();
+      const doesUserExist = await user.findUser(sub);
+
+      if (!doesUserExist) {
+        await user.createUser(sub, email, picture)
+      }
+
       done(null);
     }
   )
