@@ -53,7 +53,6 @@ export class User {
 
     try {
       const user = await pool.query(createUserQuery, [id, email, picture]);
-      console.log("hiiiiiiiiiiiiiii", user);
     } catch (error) {
       console.error("Could not create user", error);
       return error;
