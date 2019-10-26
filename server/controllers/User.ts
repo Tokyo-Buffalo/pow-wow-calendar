@@ -28,7 +28,7 @@ export class User {
    * 
    * @returns boolean
    */
-  async findUser(userId: string): boolean {
+  async findUser(userId: string): Promise<boolean> {
     const userExistsQuery = `SELECT id FROM users WHERE id IN ($1);`;
 
     try {
