@@ -35,3 +35,9 @@ psql
 
 CREATE DATABASE powwowcalendar;
 ```
+### Create users table
+Next, you'll need to create the users table. Run the comamnd below in the terminal:
+
+```
+npm run db:user
+```
