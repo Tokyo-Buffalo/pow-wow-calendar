@@ -1,9 +1,13 @@
 import { hot } from "react-hot-loader/root";
 import { setConfig } from 'react-hot-loader';
-import React from "react";
+import React, { Fragment } from "react";
+import { Button } from "antd";
 
 const App = () => (
-  <h1>Test32 world!</h1>
+  <Fragment>
+    <h1>Sign in</h1>
+    <Button type="primary" href="/auth/google">Sign in with Google</Button>
+  </Fragment>
 );
 
 setConfig({
