@@ -22,6 +22,9 @@ export default ({
       test: /\.tsx?$/,
       use: "ts-loader",
       exclude: /\.test.tsx?$/
+    }, {
+      test: /\.css$/,
+      use: ["style-loader", "css-loader"]
     }]
   },
   plugins: [

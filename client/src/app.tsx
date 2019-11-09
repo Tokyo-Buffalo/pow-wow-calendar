@@ -1,6 +1,8 @@
 import { hot } from "react-hot-loader/root";
-import { setConfig } from 'react-hot-loader';
 import React, { Fragment } from "react";
+import { setConfig } from 'react-hot-loader';
+import "antd/dist/antd.css";
+
 import { Button } from "antd";
 
 const App = () => (
