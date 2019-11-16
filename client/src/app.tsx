@@ -1,24 +1,27 @@
-import { hot } from "react-hot-loader/root";
-import React, { Fragment } from "react";
-import { Provider } from "react-redux";
-import { setConfig } from "react-hot-loader";
-import { store } from "./store";
+import { hot } from 'react-hot-loader/root';
+import React, { Fragment } from 'react';
+import { Provider } from 'react-redux';
+import { setConfig } from 'react-hot-loader';
+import { store } from './store';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { routes } from './routes';
 
-import "antd/dist/antd.css";
-
-import { Button } from "antd";
+import 'antd/dist/antd.css';
 
 const App = () => (
   <Provider store={store}>
-    <h1>Sign in</h1>
-    <Button type="primary" href="/auth/google">
-      Sign in with Google
-    </Button>
+    <Router>
+      <Switch>
+        {routes.map((route, i) => (
+          <Route key={i} {...route} />
+        ))}
+      </Switch>
+    </Router>
   </Provider>
 );
 
 setConfig({
-  logLevel: "log"
+  logLevel: 'log'
 });
 
 export default hot(App);
