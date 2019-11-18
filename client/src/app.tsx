@@ -5,31 +5,19 @@ import { setConfig } from 'react-hot-loader';
 import { store } from './store';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { routes } from './routes';
-import { Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
+import { Layout } from 'antd';
+import { AppHeader } from './components/Header';
 
 import 'antd/dist/antd.css';
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 const App = () => (
   <Provider store={store}>
     <Router>
       <Switch>
         <Layout>
-          <Header>
-            <Menu theme="dark" mode="horizontal" style={{ lineHeight: '64px' }}>
-              <Menu.Item key="home">
-                <Link to="/">Home</Link>
-              </Menu.Item>
-              <Menu.Item key="events">
-                <Link to="/events">Events</Link>
-              </Menu.Item>
-              <Menu.Item key="calendar">
-                <Link to="/calendar">Calendar</Link>
-              </Menu.Item>
-            </Menu>
-          </Header>
+          <AppHeader />
           <Content>
             {routes.map((route, i) => (
               <Route key={i} {...route} />
