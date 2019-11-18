@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { routes } from '../routes';
 import { getUserLoggedInStatus } from '../store/user';
 import { AppHeader } from '../components/Header';
+import { AppFooter } from '../components/Footer';
 
 const { Content } = Layout;
 
@@ -24,6 +25,7 @@ export const AppLayout = () => {
           <Route key={i} {...route} />
         ))}
       </Content>
+      <AppFooter />
     </Layout>
   );
 };
