@@ -51,6 +51,12 @@ app.get(
   })
 );
 
+app.get('/auth', (req, res) => {
+  if (session) {
+    console.log('res');
+  }
+});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
