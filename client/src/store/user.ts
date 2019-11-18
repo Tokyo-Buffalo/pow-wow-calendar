@@ -14,7 +14,7 @@ export const SET_USER_DETAILS = '[user] sets user details';
 export const getUserLoggedInStatus = createAction<void>(FETCH_USER_DETAILS);
 export const setUserDetails = createAction<boolean>(SET_USER_DETAILS);
 
-const initialState: UserState = {
+export const initialUserState: UserState = {
   id: '',
   email: '',
   isLoggedIn: false
@@ -27,5 +27,5 @@ export const userReducer = reduceReducers<UserState>(
       state.isLoggedIn = payload;
     })
   ],
-  initialState
+  initialUserState
 );
