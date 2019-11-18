@@ -8,11 +8,13 @@ interface IUser {
 
 export type UserState = Readonly<IUser>;
 
-export const FETCH_USER_DETAILS = '[user] fetch user login';
+export const FETCH_USER_LOGIN_STATUS = '[user] fetch user login';
+export const FETCH_USER_DETAILS = '[user] fetch user details';
 export const SET_USER_DETAILS = '[user] sets user details';
 
-export const getUserLoggedInStatus = createAction<void>(FETCH_USER_DETAILS);
-export const setUserDetails = createAction<boolean>(SET_USER_DETAILS);
+export const getUserLoggedInStatus = createAction<void>(FETCH_USER_LOGIN_STATUS);
+export const getUserDetails = createAction<string>(FETCH_USER_DETAILS);
+export const setUserDetails = createAction<UserState>(SET_USER_DETAILS);
 
 export const initialUserState: UserState = {
   id: '',
@@ -22,10 +24,9 @@ export const initialUserState: UserState = {
 
 export const userReducer = reduceReducers<UserState>(
   [
-    handleAction(getUserLoggedInStatus, state => state),
-    handleAction(setUserDetails, (state, { payload }) => {
-      state.isLoggedIn = payload;
-    })
+    handleAction(setUserDetails, (_, { payload }) => ({
+      ...payload
+    }))
   ],
   initialUserState
 );

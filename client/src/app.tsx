@@ -3,27 +3,17 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { setConfig } from 'react-hot-loader';
 import { store } from './store';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
-import { routes } from './routes';
-import { Layout } from 'antd';
-import { AppHeader } from './components/Header';
+import { Switch, BrowserRouter as Router } from 'react-router-dom';
+
+import { AppLayout } from './components/Layout';
 
 import 'antd/dist/antd.css';
-
-const { Content } = Layout;
 
 const App = () => (
   <Provider store={store}>
     <Router>
       <Switch>
-        <Layout>
-          <AppHeader />
-          <Content>
-            {routes.map((route, i) => (
-              <Route key={i} {...route} />
-            ))}
-          </Content>
-        </Layout>
+        <AppLayout />
       </Switch>
     </Router>
   </Provider>

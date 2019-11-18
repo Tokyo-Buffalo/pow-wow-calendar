@@ -5,12 +5,14 @@ interface IFetch {
 
 async function request({ endpoint, method }: IFetch) {
   try {
-    await fetch(endpoint, {
+    const response = await fetch(endpoint, {
       method,
       headers: {
         'Content-Type': 'application/json'
       }
     });
+    const jsonRes = await response.json();
+    return jsonRes;
   } catch (error) {
     console.log('Could not retrieve endpoint', error);
     return error;
