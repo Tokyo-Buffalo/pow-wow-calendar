@@ -16,3 +16,10 @@ async function request({ endpoint, method }: IFetch) {
     return error;
   }
 }
+
+export function getLoggedInStatus() {
+  return request({
+    method: 'GET',
+    endpoint: '/auth'
+  });
+}
