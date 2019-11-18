@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "antd": "^3.23.4",
+    "camelcase-keys": "^6.1.1",
     "connect-redis": "^4.0.2",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
@@ -20,6 +21,7 @@
     "react-router-dom": "^5.1.2",
     "redis": "^2.8.0",
     "redux": "^4.0.4",
+    "redux-saga": "^1.1.3",
     "redux-ts-utils": "^3.2.2"
   },
   "devDependencies": {
@@ -37,6 +39,7 @@
     "@types/react-router": "^5.1.3",
     "@types/react-router-dom": "^5.1.2",
     "@types/redis": "^2.8.13",
+    "@types/redux-logger": "^3.0.7",
     "@types/webpack": "^4.39.1",
     "@types/webpack-dev-middleware": "^2.0.3",
     "css-loader": "^3.2.0",
@@ -50,10 +53,11 @@
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "redux-devtools": "^3.5.0",
+    "redux-logger": "^3.0.6",
     "style-loader": "^1.0.0",
     "ts-loader": "^6.1.0",
     "ts-node-dev": "^1.0.0-pre.42",
-    "typescript": "^3.6.3",
+    "typescript": "^3.7.2",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.8",
     "webpack-dev-middleware": "^3.7.1",
