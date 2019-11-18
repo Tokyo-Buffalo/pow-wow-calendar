@@ -61,7 +61,8 @@
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.8",
     "webpack-dev-middleware": "^3.7.1",
-    "webpack-hot-middleware": "^2.25.0"
+    "webpack-hot-middleware": "^2.25.0",
+    "svg-inline-loader": "^0.8.0"
   },
   "scripts": {
     "dev:client": "node_modules/.bin/webpack-cli",
