@@ -1,17 +1,18 @@
-import { call, take } from 'redux-saga/effects';
+import { call, take, fork } from 'redux-saga/effects';
+import { FETCH_USER_DETAILS } from '../../store/user';
 import { getLoggedInStatus } from '../../helpers/api';
 
 export function* isUserLoggedInSaga() {
   try {
     yield call(getLoggedInStatus);
   } catch (error) {
-    console.log(error);
     return error;
   }
 }
 
-export function watchIsUserLoggedInSaga() {
+export function* watchIsUserLoggedInSaga() {
   while (true) {
-    const action = take();
+    yield take(FETCH_USER_DETAILS);
+    yield fork(isUserLoggedInSaga);
   }
 }
