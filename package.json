@@ -55,7 +55,6 @@
     "redux-devtools": "^3.5.0",
     "redux-logger": "^3.0.6",
     "style-loader": "^1.0.0",
-    "svg-inline-loader": "^0.8.0",
     "ts-loader": "^6.1.0",
     "ts-node-dev": "^1.0.0-pre.42",
     "typescript": "^3.7.2",
