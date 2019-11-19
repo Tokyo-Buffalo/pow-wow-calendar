@@ -1,6 +1,10 @@
 import React from 'react';
 
-const SvgPowLogo = (props: any) => (
+interface IProps {
+  width: string;
+}
+
+const SvgPowLogo = (props: IProps) => (
   <svg id="powLogo_svg__Layer_1" data-name="Layer 1" viewBox="0 0 313.51 55.01" {...props}>
     <defs>
       <style>
