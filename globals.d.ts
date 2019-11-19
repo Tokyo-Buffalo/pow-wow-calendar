@@ -1,4 +1,8 @@
 declare interface Window {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
-  __REDUX_DEVTOOLS_EXTENSION__: any;
+}
+
+declare module '*.svg' {
+  const content: string;
+  export default content;
 }
