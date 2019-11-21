@@ -62,3 +62,6 @@ typings/
 
 # build files
 dist
+
+# Ignore redis binary dump (dump.rdb) files
+*.rdb
