@@ -20,17 +20,18 @@ export const AppHeader = () => (
       <Menu.Item key="calendar">
         <Link to="/calendar">Calendar</Link>
       </Menu.Item>
-      <Menu.ItemGroup>
-        <Menu.Item key="userProfile">
-          User Profile
-        </Menu.Item>
-        <Menu.Item key="manageEvents">
-          Manage Events
-        </Menu.Item>
-        <Menu.Item key="createEvent">
-          Create Event
-        </Menu.Item>
-      </Menu.ItemGroup>
+      <Menu.Item key="search">
+        <Link to="/search">Search</Link>
+      </Menu.Item>
+      <Menu.Item key="userProfile">
+        <Link to="/userProfile">User Profile</Link>
+      </Menu.Item>
+      <Menu.Item key="manageEvents">
+        <Link to="/manageEvents">Manage Events</Link>
+      </Menu.Item>
+      <Menu.Item key="createEvent">
+        <Link to="/createEvent">Create Event</Link>
+      </Menu.Item>
     </Menu>
   </Header>
 );

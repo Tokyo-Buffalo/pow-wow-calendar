@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Icon, Avatar } from 'antd';
+import { Link } from 'react-router-dom';
 import './EventCard.css';
 
 const { Meta } = Card;
@@ -15,8 +16,8 @@ export const EventCard = () => (
     }
     actions={[
       <Icon type="setting" key="setting" />,
-      <Icon type="edit" key="edit" />,
-      <Icon type="ellipsis" key="ellipsis" />,
+      <Link to="/editEvent"><Icon type="edit" key="edit" /></Link>,
+      <Link to="/createEvent"><Icon type="ellipsis" key="ellipsis" /></Link>,
     ]}
   >
     <Meta
