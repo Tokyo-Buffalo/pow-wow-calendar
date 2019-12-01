@@ -16,7 +16,7 @@ export const AppLayout = () => {
   useEffect(() => {
     dispatch(getUserLoggedInStatus());
   });
-
+const layoutStyle= {'background-color':'#fff'}
   return (
     <Layout className="layout">
       <AppHeader />
