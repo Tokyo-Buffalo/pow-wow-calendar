@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Row, Col, Input, Button, Icon } from 'antd';
 import { HeroHeader } from '../components/HeroHeader';
 import { EventCard } from '../components/EventCard';
+import './Search.css';
 
 export const Search = () => (
   <div className="searchContentWrapper">

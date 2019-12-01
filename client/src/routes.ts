@@ -2,6 +2,7 @@ import { Home } from './pages/Home';
 import { Dashboard } from './pages/Dashboard';
 import { CalendarPage } from './pages/Calendar';
 import { Search } from './pages/Search';
+import { CreateEvent } from './pages/CreateEvent';
 
 export const routes = [
   {
@@ -22,6 +23,11 @@ export const routes = [
   {
     path: '/search',
     component: Search,
+    exact: true
+  },
+  {
+    path: '/createEvent',
+    component: CreateEvent,
     exact: true
   }
 ];
