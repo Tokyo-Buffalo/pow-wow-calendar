@@ -17,7 +17,7 @@ export const EventCard = () => (
     actions={[
       <Icon type="setting" key="setting" />,
       <Link to="/editEvent"><Icon type="edit" key="edit" /></Link>,
-      <Link to="/createEvent"><Icon type="ellipsis" key="ellipsis" /></Link>,
+      <Link to="/singleEvent"><Icon type="ellipsis" key="ellipsis" /></Link>,
     ]}
   >
     <Meta

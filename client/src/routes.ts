@@ -3,6 +3,7 @@ import { Dashboard } from './pages/Dashboard';
 import { CalendarPage } from './pages/Calendar';
 import { Search } from './pages/Search';
 import { CreateEvent } from './pages/CreateEvent';
+import { SingleEvent } from './pages/SingleEvent';
 
 export const routes = [
   {
@@ -28,6 +29,11 @@ export const routes = [
   {
     path: '/createEvent',
     component: CreateEvent,
+    exact: true
+  },
+  {
+    path: '/singleEvent',
+    component: SingleEvent,
     exact: true
   }
 ];
