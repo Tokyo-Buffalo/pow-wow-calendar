@@ -5,6 +5,7 @@ import { EventCard } from '../components/EventCard';
 import './Home.css';
 export const Home = () => (
   <div className="homeContentWrapper">
+    <p>zaza</p>
     <HeroHeader />
     <div className="eventListing">
       <EventCard />
