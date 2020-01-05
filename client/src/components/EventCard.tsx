@@ -1,29 +1,32 @@
 import React from 'react';
-import { Card, Icon, Avatar } from 'antd';
+import { Card, Icon, Avatar, Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
 import './EventCard.css';
 
 const { Meta } = Card;
 
 export const EventCard = () => (
-    <Card
-    style={{ width: 400 }}
-    cover={
-      <img
-        alt="example"
-        src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-      />
-    }
-    actions={[
-      <Icon type="setting" key="setting" />,
-      <Link to="/editEvent"><Icon type="edit" key="edit" /></Link>,
-      <Link to="/singleEvent"><Icon type="ellipsis" key="ellipsis" /></Link>,
-    ]}
+  <Card
+    hoverable = {true}
+    style= {{ width: '80%', marginTop: '1rem'}}
+
   >
-    <Meta
-      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-      title="Pow-Wow Event"
-      description="This is the description"
-    />
+    <Row>
+      <Col span={8}>
+      <Link to="/singleEvent" ><img
+          alt="example"
+          src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+        /></Link>
+      </Col>
+      <Col span={16} className="eventCardMeta">
+      
+        <p className="eventCardMeta_date">08/25/2019 - 08/27/2019</p>
+        <h3>Little Shell - Elders and Veterans Traditional Pow Wow</h3>
+        <p>Elm Springs, Montana</p>
+
+      </Col>
+    </Row>
+   
+    
   </Card>
 );

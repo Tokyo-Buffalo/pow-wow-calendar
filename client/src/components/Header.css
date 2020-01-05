@@ -2,3 +2,6 @@
     display: inline-bock;
     float: left;
 }
+.header_bg {
+    background-color: #fff !important;
+}

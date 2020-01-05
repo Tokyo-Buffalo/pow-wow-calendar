@@ -4,6 +4,7 @@ import { CalendarPage } from './pages/Calendar';
 import { Search } from './pages/Search';
 import { CreateEvent } from './pages/CreateEvent';
 import { SingleEvent } from './pages/SingleEvent';
+import { UserProfile } from './pages/UserProfile';
 
 export const routes = [
   {
@@ -35,5 +36,10 @@ export const routes = [
     path: '/singleEvent',
     component: SingleEvent,
     exact: true
-  }
+  },
+  {
+    path: '/userProfile',
+    component: UserProfile,
+    exact: true
+  },
 ];
