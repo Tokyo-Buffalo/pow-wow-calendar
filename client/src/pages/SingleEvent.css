@@ -1,0 +1,9 @@
+.avatarMetaSectionWrapper {
+    display: relative;
+}
+.avatarMetaSectionWrapper img{
+    float: left;
+}
+.singleEventSectHeading {
+    font-weight: bold;
+}

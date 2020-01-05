@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Layout } from 'antd';
+import { Layout, Breadcrumb } from 'antd';
 import { Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -16,11 +16,12 @@ export const AppLayout = () => {
   useEffect(() => {
     dispatch(getUserLoggedInStatus());
   });
-
+const layoutStyle= {'background-color':'#fff'}
   return (
-    <Layout>
+    <Layout className="layout">
       <AppHeader />
-      <Content>
+      <Content  style={{ padding: '0 50px' }}>
+        
         {routes.map((route, i) => (
           <Route key={i} {...route} />
         ))}
