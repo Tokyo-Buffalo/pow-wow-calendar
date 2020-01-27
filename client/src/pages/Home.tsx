@@ -13,7 +13,7 @@ export const Home = () => {
   }
 
   return (
-    <Content style={{ padding: "25px 50px" }}>
+    <Fragment>
       {!isLoggedIn ? (
         <Fragment>
           <h1>Sign in</h1>
@@ -26,6 +26,6 @@ export const Home = () => {
           <h1>Welcome back!</h1>
         </Fragment>
       )}
-    </Content>
+    </Fragment>
   );
 };
