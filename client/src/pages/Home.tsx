@@ -5,6 +5,7 @@ import { IState } from "../store";
 
 export const Home = () => {
   const { hasLoaded, isLoggedIn } = useSelector((state: IState) => state.user);
+  console.log("loaded?", hasLoaded);
 
   return (
     <Fragment>
@@ -14,6 +15,11 @@ export const Home = () => {
           <Button type="primary" href="/auth/google">
             Sign in with Google
           </Button>
+        </Fragment>
+      )}
+      {hasLoaded && isLoggedIn && (
+        <Fragment>
+          <h1>Welcome back!</h1>
         </Fragment>
       )}
     </Fragment>

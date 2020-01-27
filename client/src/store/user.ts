@@ -21,7 +21,7 @@ export const initialUserState: UserState = {
   id: "",
   email: "",
   isLoggedIn: false,
-  hasLoaded: true
+  hasLoaded: false
 };
 
 export const userReducer = reduceReducers<UserState>(
