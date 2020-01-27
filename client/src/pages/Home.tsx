@@ -5,7 +5,6 @@ import { IState } from "../store";
 
 export const Home = () => {
   const { hasLoaded, isLoggedIn } = useSelector((state: IState) => state.user);
-  console.log("loaded?", hasLoaded);
 
   return (
     <Fragment>
