@@ -20,6 +20,9 @@ export const AppHeader = () => (
       <Menu.Item key="calendar">
         <Link to="/calendar">Calendar</Link>
       </Menu.Item>
+      <Menu.Item key="profile">
+        <Link to="/profile">Profile</Link>
+      </Menu.Item>
     </Menu>
   </Header>
 );
