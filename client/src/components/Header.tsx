@@ -1,14 +1,14 @@
-import React from 'react';
-import { Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Layout, Menu } from "antd";
+import { Link } from "react-router-dom";
 
-import Logo from '../components/Logo';
+import Logo from "../components/Logo";
 
 const { Header } = Layout;
 
 export const AppHeader = () => (
   <Header>
-    <Menu theme="dark" mode="horizontal" style={{ lineHeight: '64px' }}>
+    <Menu theme="dark" mode="horizontal" style={{ lineHeight: "64px" }}>
       <Menu.Item key="home">
         <Link to="/">
           <Logo width="100px" />
