@@ -1,36 +1,28 @@
 import { Home } from "./pages/Home";
 import { Dashboard } from "./pages/Dashboard";
-<<<<<<< HEAD
 import { Events } from "./pages/Events";
 import { AddEvents } from "./pages/AddEvent";
-=======
 import { Profile } from "./pages/Profile";
->>>>>>> develop
 
 export const routes = [
   {
     path: "/",
-    component: Home,
-    exact: true
+    component: Home
   },
   {
     path: "/dashboard",
-    component: Dashboard,
-    exact: true
+    component: Dashboard
   },
   {
-<<<<<<< HEAD
     path: "/events",
-    component: Events,
-    exact: true
+    component: Events
   },
   {
     path: "/events/add",
-    component: AddEvents,
-=======
+    component: AddEvents
+  },
+  {
     path: "/profile",
-    component: Profile,
->>>>>>> develop
-    exact: true
+    component: Profile
   }
 ];
