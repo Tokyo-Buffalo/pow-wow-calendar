@@ -1,7 +1,11 @@
 import { Home } from "./pages/Home";
 import { Dashboard } from "./pages/Dashboard";
+<<<<<<< HEAD
 import { Events } from "./pages/Events";
 import { AddEvents } from "./pages/AddEvent";
+=======
+import { Profile } from "./pages/Profile";
+>>>>>>> develop
 
 export const routes = [
   {
@@ -15,6 +19,7 @@ export const routes = [
     exact: true
   },
   {
+<<<<<<< HEAD
     path: "/events",
     component: Events,
     exact: true
@@ -22,6 +27,10 @@ export const routes = [
   {
     path: "/events/add",
     component: AddEvents,
+=======
+    path: "/profile",
+    component: Profile,
+>>>>>>> develop
     exact: true
   }
 ];

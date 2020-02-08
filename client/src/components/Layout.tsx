@@ -20,7 +20,7 @@ export const AppLayout = () => {
   return (
     <Layout>
       <AppHeader />
-      <Content style={{ padding: "15px 50px" }}>
+      <Content style={{ padding: "15px 50px", background: "#fff" }}>
         {routes.map((route, i) => (
           <Route key={i} {...route} />
         ))}
