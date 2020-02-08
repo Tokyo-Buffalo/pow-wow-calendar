@@ -22,7 +22,7 @@ export const AppLayout = () => {
       <AppHeader />
       <Content style={{ padding: "15px 50px", background: "#fff" }}>
         {routes.map((route, i) => (
-          <Route key={i} {...route} />
+          <Route key={i} {...route} exact={true} />
         ))}
       </Content>
       <AppFooter />
