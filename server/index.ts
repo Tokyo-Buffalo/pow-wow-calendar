@@ -45,10 +45,6 @@ app.use(
 );
 app.use(require("webpack-hot-middleware")(compiler));
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist/index.html"));
-});
-
 app.get("/auth/google", passport.authenticate("google", { scope: ["openid email"] }));
 
 app.get(
@@ -68,6 +64,10 @@ app.get("/auth", async (req, res) => {
   } else {
     res.json({ isLoggedIn: false }).end();
   }
+});
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
 
 app.listen(port, () => {
