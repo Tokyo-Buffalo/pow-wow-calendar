@@ -23,7 +23,7 @@ export function EventsForm(props: Props) {
         <Content>
           <Row>
             <Col span={12}>
-              <Form onSubmit={handleSubmit}>
+              <Form onFinish={handleSubmit}>
                 <Form.Item label="Event Name:">
                   <Input type="text" {...bind} />
                 </Form.Item>
