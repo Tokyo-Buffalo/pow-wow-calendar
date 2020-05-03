@@ -15,5 +15,9 @@
       "node",
       "jest"
     ],
+  },
+  "globals": {
+    "test": "test",
+    "expect": "expect"
   }
 }
