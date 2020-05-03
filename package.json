@@ -66,7 +66,8 @@
   "scripts": {
     "dev:client": "node_modules/.bin/webpack-cli",
     "dev:server": "node_modules/.bin/ts-node-dev --respawn --transpileOnly server/index.ts",
-    "create-tables": "ts-node server/db/createTables.ts"
+    "create-tables": "ts-node server/db/createTables.ts",
+    "test": "npx jest"
   },
   "repository": {
     "type": "git",
