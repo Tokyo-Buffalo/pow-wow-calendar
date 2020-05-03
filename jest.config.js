@@ -1,6 +1,4 @@
-import {
-  defaults
-} from 'jest-config';
+const { defaults } = require("jest-config");
 
 module.exports = {
   verbose: true,
