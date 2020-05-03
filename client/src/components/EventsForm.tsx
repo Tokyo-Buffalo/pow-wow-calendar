@@ -5,6 +5,7 @@ import { useInput } from "../hooks/useInput";
 interface Props {}
 
 const { Content } = Layout;
+const { RangePicker } = DatePicker;
 
 export function EventsForm(props: Props) {
   const { value, bind, reset } = useInput("");
@@ -29,7 +30,7 @@ export function EventsForm(props: Props) {
                   <Input type="text" {...bind} />
                 </Form.Item>
                 <Form.Item label="Start Date:">
-                  <DatePicker format={dateFormat} />
+                  <RangePicker format={dateFormat} />
                 </Form.Item>
                 <Input type="submit" value="Submit" />
               </Form>
