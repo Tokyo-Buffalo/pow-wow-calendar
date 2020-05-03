@@ -4,5 +4,5 @@ const { User } = require("../User");
 test("Creates a new user", () => {
   const user = new User();
 
-  expect(user).toEqual(1);
+  expect(user).toEqual({ user: null });
 });
