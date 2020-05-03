@@ -1,5 +1,5 @@
 import React, { Fragment, FormEvent } from "react";
-import { Layout, Input, Form, Row, Col, PageHeader } from "antd";
+import { Layout, Input, Form, DatePicker, Row, Col, PageHeader } from "antd";
 import { useInput } from "../hooks/useInput";
 
 interface Props {}
@@ -8,6 +8,7 @@ const { Content } = Layout;
 
 export function EventsForm(props: Props) {
   const { value, bind, reset } = useInput("");
+  const dateFormat = "MM/DD/YYYY";
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,7 +29,7 @@ export function EventsForm(props: Props) {
                   <Input type="text" {...bind} />
                 </Form.Item>
                 <Form.Item label="Start Date:">
-                  <Input type="text" {...bind} />
+                  <DatePicker format={dateFormat} />
                 </Form.Item>
                 <Input type="submit" value="Submit" />
               </Form>
