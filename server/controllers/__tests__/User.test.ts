@@ -25,7 +25,7 @@ test("Creates a new user", async () => {
   const users = await pool.query("SELECT * FROM users;");
 
   await user.findUser(sub).then(async (res: boolean) => {
-    await expect(user).toEqual(1);
+    await expect(users).toEqual(1);
     await expect(res).toEqual(true);
   });
   return await pool.end();
