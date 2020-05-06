@@ -40,6 +40,9 @@ jobs:
       - name: Installing ts-node globally
         run: npm i ts-node -g
 
+      - name: Running
+        run: psql -h postgres -p 5432 -U postgres -W < ./scripts/dump.sql
+
       - name: Creating test data and running tests
         run: |
           npm test
