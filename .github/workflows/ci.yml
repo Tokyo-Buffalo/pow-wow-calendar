@@ -46,4 +46,4 @@ jobs:
           PGHOST_TEST: postgres
           PGUSER_TEST: postgres
           PGPASSWORD_TEST: postgres
-          PGDATABASE_TEST: powwowcalendar_test
+          PGDATABASE_TEST: postgres
