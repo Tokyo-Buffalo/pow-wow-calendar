@@ -6,30 +6,27 @@ name: CI
 # events but only for the master branch
 on: [push, pull_request]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  container-job:
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
 
-    container:
-      image: node:10.16-jessie
+    # Docker Hub image that `container-job` executes in
+    container: node:10.18-jessie
 
     services:
       postgres:
-        image: postgres:10.8
-
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
         env:
-          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: postgres
-
-        ports:
-          - 5432:5432
-
-        # needed because the postgres container does not provide a healthcheck
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       # Steps represent a sequence of tasks that will be executed as part of the job steps:
@@ -43,6 +40,9 @@ jobs:
       - name: Running tests
         run: npm test
         env:
+          POSTGRES_HOST: postgres
+          # The default PostgreSQL port
+          POSTGRES_PORT: 5432
           PGHOST_TEST: postgres
           PGUSER_TEST: postgres
           PGPASSWORD_TEST: postgres
