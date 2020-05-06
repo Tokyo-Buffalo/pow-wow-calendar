@@ -1,7 +1,6 @@
 import { pool } from "./pool";
 
-const queryTexts = [
-  `
+export const userQuery = `
   CREATE TABLE IF NOT EXISTS users(
     id VARCHAR(128) PRIMARY KEY,
     email VARCHAR(128) NOT NULL, 
@@ -9,15 +8,16 @@ const queryTexts = [
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
     modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     is_admin BOOL DEFAULT FALSE
-  )`,
-  `
-  CREATE TABLE IF NOT EXISTS events(
+  )`;
+
+export const eventsQuery = `CREATE TABLE IF NOT EXISTS events(
     id VARCHAR(128) PRIMARY KEY,
     name VARCHAR(128) NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-  )`,
-];
+  )`;
+
+const queryTexts = [userQuery, eventsQuery];
 
 export default (async () => {
   try {
