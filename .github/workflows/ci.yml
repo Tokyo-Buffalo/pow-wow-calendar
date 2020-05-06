@@ -40,10 +40,8 @@ jobs:
       - name: Installing ts-node globally
         run: npm i ts-node -g
 
-      - name: Creating test data and running tests
-        run: |
-          npm run create-tables
-          npm test
+      - name: Running tests
+        run: npm test
         env:
           POSTGRES_HOST: postgres
           # The default PostgreSQL port
