@@ -1,5 +1,4 @@
 const { Client } = require("pg");
-import "./server/db/createTables";
 
 require("jest-fetch-mock").enableMocks();
 

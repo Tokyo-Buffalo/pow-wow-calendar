@@ -42,6 +42,7 @@ jobs:
 
       - name: Creating test data and running tests
         run: |
+          npm run create-tables
           npm test
         env:
           POSTGRES_HOST: postgres
