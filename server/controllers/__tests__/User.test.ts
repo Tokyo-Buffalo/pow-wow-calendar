@@ -22,10 +22,8 @@ beforeEach(async () => {
 
 test("Creates a new user", async () => {
   await user.createUser(sub, email, picture);
-  const users = await pool.query("SELECT * FROM users;");
 
   await user.findUser(sub).then(async (res: boolean) => {
-    await expect(users).toEqual(1);
     await expect(res).toEqual(true);
   });
   return await pool.end();
