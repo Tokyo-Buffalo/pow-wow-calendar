@@ -1,19 +1,22 @@
 // import fetch from "jest-fetch-mock";
 const { User } = require("../User");
+import { pool } from "./../../db/pool";
 
 const user = new User();
 
 const sub = "123456789";
 const email = "tester@test.com";
-const picture = "https://picture";
+const picture = "https://google.com/picture.jpg";
 
-test("Creates a new user", (done) => {
-  user.createUser(sub, email, picture);
+beforeEach(async () => {
+  return await pool.query("TRUNCATE TABLE users;");
+});
 
-  user.findUser(sub).then((res: boolean) => {
-    expect(res).toEqual(true);
-    done();
+test("Creates a new user", async () => {
+  await user.createUser(sub, email, picture);
+
+  await user.findUser(sub).then(async (res: boolean) => {
+    await expect(res).toEqual(true);
   });
-
-  done();
+  return await pool.end();
 });
