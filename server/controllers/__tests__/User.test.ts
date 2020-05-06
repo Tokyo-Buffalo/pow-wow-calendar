@@ -20,7 +20,7 @@ beforeEach(async () => {
   `);
 });
 
-afterEach(() => {
+afterEach(async () => {
   await pool.query("TRUNCATE TABLE users;");
 });
 
