@@ -19,11 +19,11 @@ export const eventsQuery = `CREATE TABLE IF NOT EXISTS events(
 
 const queryTexts = [userQuery, eventsQuery];
 
-export default (async () => {
+export async function createTables() {
   try {
     return queryTexts.map((queryText) => pool.query(queryText));
   } catch (err) {
     console.error("Error: Could not create user table", err);
     return await pool.end();
   }
-})();
+}
