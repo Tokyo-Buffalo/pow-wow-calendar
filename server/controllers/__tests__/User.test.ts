@@ -8,6 +8,18 @@ const sub = "123456789";
 const email = "tester@test.com";
 const picture = "https://google.com/picture.jpg";
 
+beforeEach(async () => {
+  return await pool.query(`
+    CREATE TABLE IF NOT EXISTS users(
+      id VARCHAR(128) PRIMARY KEY,
+      email VARCHAR(128) NOT NULL, 
+      picture VARCHAR(128) NOT NULL,
+      created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+      modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      is_admin BOOL DEFAULT FALSE
+    )`);
+});
+
 test("Creates a new user", async () => {
   await user.createUser(sub, email, picture);
   const users = await pool.query("SELECT * FROM users;");
