@@ -17,13 +17,13 @@ export const eventsQuery = `CREATE TABLE IF NOT EXISTS events(
     modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   )`;
 
-const queryTexts = [userQuery, eventsQuery];
+// const queryTexts = [userQuery, eventsQuery];
 
-export default (async () => {
-  try {
-    return queryTexts.map((queryText) => pool.query(queryText));
-  } catch (err) {
-    console.error("Error: Could not create user table", err);
-    return await pool.end();
-  }
-})();
+// export default (async () => {
+//   try {
+//     return queryTexts.map((queryText) => pool.query(queryText));
+//   } catch (err) {
+//     console.error("Error: Could not create user table", err);
+//     return await pool.end();
+//   }
+// })();
