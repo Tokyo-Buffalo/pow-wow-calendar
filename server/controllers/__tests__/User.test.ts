@@ -9,7 +9,7 @@ const email = "tester@test.com";
 const picture = "https://google.com/picture.jpg";
 
 beforeEach(async () => {
-  return await pool.query("TRUNCATE TABLE users;");
+  await pool.query("TRUNCATE TABLE users;");
 });
 
 test("Creates a new user", async () => {

@@ -40,17 +40,6 @@ jobs:
       - name: Installing ts-node globally
         run: npm i ts-node -g
 
-      - name: Creating test data
-        run: ts-node ./server/db/createTables.ts
-        env:
-          POSTGRES_HOST: postgres
-          # The default PostgreSQL port
-          POSTGRES_PORT: 5432
-          PGHOST_TEST: postgres
-          PGUSER_TEST: postgres
-          PGPASSWORD_TEST: postgres
-          PGDATABASE_TEST: postgres
-
       - name: Creating test data and running tests
         run: |
           npm test
