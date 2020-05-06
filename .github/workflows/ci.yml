@@ -37,9 +37,6 @@ jobs:
       - name: Installing packages
         run: npm ci
 
-      - name: Installing ts-node globally
-        run: npm i ts-node -g
-
       - name: Running tests
         run: npm test
         env:
