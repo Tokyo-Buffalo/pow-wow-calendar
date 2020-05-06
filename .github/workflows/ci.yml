@@ -37,6 +37,9 @@ jobs:
       - name: Installing packages
         run: npm ci
 
+      - name: Creating test tables
+        run: psql postgres < ./scripts/dump.sql
+
       - name: Running tests
         run: npm test
         env:
