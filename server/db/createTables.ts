@@ -16,12 +16,12 @@ const queryTexts = [
     name VARCHAR(128) NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-  )`
+  )`,
 ];
 
 export default (async () => {
   try {
-    return queryTexts.map(queryText => pool.query(queryText));
+    return queryTexts.map((queryText) => pool.query(queryText));
   } catch (err) {
     console.error("Error: Could not create user table", err);
     return await pool.end();

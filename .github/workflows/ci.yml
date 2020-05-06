@@ -38,7 +38,7 @@ jobs:
         run: npm ci
 
       - name: Creating test tables
-        run: psql postgres < ./scripts/dump.sql
+        run: ts-node ./server/db/createTables.ts
 
       - name: Running tests
         run: npm test
