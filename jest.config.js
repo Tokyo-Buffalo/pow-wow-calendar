@@ -10,4 +10,5 @@ module.exports = {
   setupFiles: ["./setupJest.ts"],
   collectCoverage: true,
   coverageReporters: ["json", "lcov", "html"],
+  coveragePathIgnorePatterns: ["tests", "/node_modules/"]
 };
