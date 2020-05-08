@@ -1,3 +1,5 @@
+![CI](https://github.com/Tokyo-Buffalo/pow-wow-calendar/workflows/CI/badge.svg)
+
 ## Dependencies
 
 First things first, make sure you have redis installed and running:
