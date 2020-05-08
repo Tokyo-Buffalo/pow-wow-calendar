@@ -72,7 +72,7 @@
     "dev:server": "node_modules/.bin/ts-node-dev --respawn --transpileOnly server/index.ts",
     "create-tables": "ts-node ./server/db/createTables.ts",
     "create-test-data": "./scripts/create-test-data.sh",
-    "test": "npx jest"
+    "test": "npx jest --collect-coverage"
   },
   "repository": {
     "type": "git",
