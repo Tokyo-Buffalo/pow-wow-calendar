@@ -47,3 +47,8 @@ jobs:
           PGUSER_TEST: postgres
           PGPASSWORD_TEST: postgres
           PGDATABASE_TEST: postgres
+
+      - name: Checking coverage
+        uses: coverallsapp/github-action@v1.1.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
