@@ -31,3 +31,7 @@ test("Gets the new user", async () => {
     await expect(res).toEqual(testUser);
   });
 });
+
+test("Fails to get user", async () => {
+  await expect(user.getUser("1")).rejects.toEqual(false);
+});

@@ -38,11 +38,6 @@ export class User {
     }
   }
 
-  /**
-   * gets the user
-   *
-   * @param id the user's id
-   */
   async getUser(id: string) {
     const getUserQuery = "SELECT * FROM users WHERE id IN ($1);";
 
@@ -51,7 +46,7 @@ export class User {
       return users.rows[0];
     } catch (error) {
       console.error("Could not retrieve user");
-      return error;
+      return new Error(error);
     }
   }
 
