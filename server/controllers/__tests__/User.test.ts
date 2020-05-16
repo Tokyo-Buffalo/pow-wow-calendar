@@ -46,5 +46,5 @@ test("Fails to get user", async () => {
 test("Fails to find user", async () => {
   expect.assertions(1);
 
-  await expect(user.findUser("1")).resolves.toEqual(null);
+  await expect(user.findUser("1")).resolves.toEqual(false);
 });
