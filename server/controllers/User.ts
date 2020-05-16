@@ -38,19 +38,18 @@ export class User {
     }
   }
 
-  /**
-   * gets the user
-   *
-   * @param id the user's id
-   */
   async getUser(id: string) {
     const getUserQuery = "SELECT * FROM users WHERE id IN ($1);";
 
     try {
       const users = await pool.query(getUserQuery, [id]);
+
+      if (!users.rows[0]) {
+        throw new Error("Could not retrieve user");
+      }
+
       return users.rows[0];
     } catch (error) {
-      console.error("Could not retrieve user");
       return error;
     }
   }

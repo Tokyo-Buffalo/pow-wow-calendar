@@ -19,6 +19,7 @@ afterAll(async () => {
 });
 
 test("Creates a new user", async () => {
+  expect.assertions(1);
   testUser = await user.createUser(sub, email, picture);
 
   await user.findUser(sub).then(async (res: boolean) => {
@@ -27,7 +28,17 @@ test("Creates a new user", async () => {
 });
 
 test("Gets the new user", async () => {
+  expect.assertions(1);
   await user.getUser(sub).then(async (res) => {
     await expect(res).toEqual(testUser);
   });
+});
+
+test("Fails to get user", async () => {
+  expect.assertions(1);
+
+  const errorMessage = "Could not retrieve user";
+  const expectedError = new Error(errorMessage);
+
+  await expect(user.getUser("1")).resolves.toEqual(expectedError);
 });
