@@ -45,7 +45,7 @@ export class User {
       const users = await pool.query(getUserQuery, [id]);
 
       if (!users.rows[0]) {
-        throw new Error();
+        throw new Error("Could not retrieve user");
       }
 
       return users.rows[0];

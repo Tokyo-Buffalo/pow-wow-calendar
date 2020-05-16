@@ -36,5 +36,9 @@ test("Gets the new user", async () => {
 
 test("Fails to get user", async () => {
   expect.assertions(1);
-  await expect(user.getUser("1")).resolves.toEqual(new Error());
+
+  const errorMessage = "Could not retrieve user";
+  const expectedError = new Error(errorMessage);
+
+  await expect(user.getUser("1")).resolves.toEqual(expectedError);
 });
