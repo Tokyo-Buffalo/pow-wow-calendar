@@ -32,9 +32,13 @@ export class User {
     try {
       const userExists = await pool.query(userExistsQuery, [userId]);
 
+      if (userExists.rowCount === 0) {
+        return false;
+      }
+
       return userExists.rowCount > 0;
     } catch (error) {
-      console.error("Could not check if user exists", error);
+      return error;
     }
   }
 
