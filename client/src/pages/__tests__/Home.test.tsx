@@ -1,44 +1,56 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { Home } from "../Home";
 import configureStore from "redux-mock-store";
-import { ExceptionMap } from "antd/lib/result";
 
 const mockStore = configureStore([]);
 
-function renderComponent(state = {}) {
+function getState(state = {}) {
   const intialState = {
     user: {
       state,
     },
   };
 
+  return mockStore(intialState);
+}
+
+test("Should not render component", () => {
+  const intialState = {
+    user: {
+      hasLoaded: false,
+    },
+  };
+
   const store = mockStore(intialState);
 
-  return render(
+  const { queryByTestId } = render(
     <Provider store={store}>
       <Home />
     </Provider>
   );
-}
-
-test("Should not render component", () => {
-  const { queryByTestId } = renderComponent({
-    hasLoaded: false,
-  });
 
   expect(queryByTestId(/login-button/i)).toBeNull();
 });
 
 test("Should render login button", () => {
-  renderComponent({
-    hasLoaded: true,
-    isLoggedIn: true,
-  });
+  const intialState = {
+    user: {
+      hasLoaded: true,
+      isLoggedIn: false,
+    },
+  };
 
-  const button = screen.getByText("login-button");
-  fireEvent.click(button);
+  const store = mockStore(intialState);
 
-  expect(button).toEqual("Sign in with Google");
+  const { getByTestId } = render(
+    <Provider store={store}>
+      <Home />
+    </Provider>
+  );
+
+  const button = getByTestId("login-button");
+
+  expect(button.innerHTML).toEqual("<span>Sign in with Google</span>");
 });
