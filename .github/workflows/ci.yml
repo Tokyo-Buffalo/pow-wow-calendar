@@ -8,20 +8,17 @@ on: [push, pull_request]
 
 jobs:
   container-job:
-    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
 
-    # Docker Hub image that `container-job` executes in
     container: node:10.18-jessie
 
     services:
       postgres:
-        # Docker Hub image
         image: postgres
-        # Provide the password for postgres
+
         env:
           POSTGRES_PASSWORD: postgres
-        # Set health checks to wait until postgres has started
+
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
