@@ -7,13 +7,11 @@ import configureStore from "redux-mock-store";
 const mockStore = configureStore([]);
 
 function getState(state = {}) {
-  const intialState = {
+  return mockStore({
     user: {
-      state,
+      ...state,
     },
-  };
-
-  return mockStore(intialState);
+  });
 }
 
 test("Should not render component", () => {
@@ -35,14 +33,10 @@ test("Should not render component", () => {
 });
 
 test("Should render login button", () => {
-  const intialState = {
-    user: {
-      hasLoaded: true,
-      isLoggedIn: false,
-    },
-  };
-
-  const store = mockStore(intialState);
+  const store = getState({
+    hasLoaded: true,
+    isLoggedIn: false,
+  });
 
   const { getByTestId } = render(
     <Provider store={store}>
