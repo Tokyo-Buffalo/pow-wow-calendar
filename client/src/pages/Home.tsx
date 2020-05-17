@@ -3,8 +3,6 @@ import { Button, Layout } from "antd";
 import { useSelector } from "react-redux";
 import { IState } from "../store";
 
-const { Content } = Layout;
-
 export const Home = () => {
   const { hasLoaded, isLoggedIn } = useSelector((state: IState) => state.user);
 
@@ -21,7 +19,7 @@ export const Home = () => {
       ) : (
         <Fragment>
           <h1>Sign in</h1>
-          <Button type="primary" href="/auth/google">
+          <Button type="primary" href="/auth/google" data-testid="login-button">
             Sign in with Google
           </Button>
         </Fragment>
