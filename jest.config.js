@@ -1,6 +1,14 @@
 const {
   defaults
 } = require("jest-config");
+const {
+  pathsToModuleNameMapper
+} = require('ts-jest/utils');
+const {
+  compilerOptions
+} = require('./tsconfig');
+
+
 
 module.exports = {
   verbose: true,
@@ -11,12 +19,15 @@ module.exports = {
   collectCoverage: true,
   coverageReporters: ["json", "lcov", "html"],
   coveragePathIgnorePatterns: ["tests", "/node_modules/"],
-  "coverageThreshold": {
-    "global": {
-      "branches": 70,
-      "functions": 70,
-      "lines": 70,
-      "statements": -10
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: '<rootDir>/'
+  }),
+  coverageThreshold: {
+    global: {
+      branches: 70,
+      functions: 70,
+      lines: 70,
+      statements: -10
     }
   }
 };

@@ -1,6 +1,6 @@
-import { User } from "../../User";
-import { pool } from "../../../db/pool";
-import { createUsersTable } from "../../../tests/utils";
+import { User } from "controllers/User";
+import { pool } from "db/pool";
+import { createUsersTable } from "utils/db";
 
 const user = new User();
 let testUser: typeof user;

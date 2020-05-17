@@ -11,10 +11,13 @@
     "preserveConstEnums": true,
     "esModuleInterop": true,
     "sourceMap": true,
-    "types": [
-      "node",
-      "jest"
-    ],
+    "types": ["node", "jest"],
+    "baseUrl": ".",
+    "paths": {
+      "db/*": ["server/db/*"],
+      "controllers/*": ["server/controllers/*"],
+      "utils/*": ["utils/tests/*"]
+    }
   },
   "globals": {
     "test": "test",
