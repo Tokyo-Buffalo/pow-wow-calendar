@@ -22,7 +22,7 @@ function renderComponent(state = {}) {
 
 test("Should not render component", () => {
   const { queryByTestId } = renderComponent({
-    hasLoaded: true
+    hasLoaded: false,
   });
 
   expect(queryByTestId(/login-button/i)).toBeNull();
