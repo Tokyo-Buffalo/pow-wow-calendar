@@ -71,13 +71,13 @@ app.get("/auth", async (req, res) => {
 });
 
 app.get("/api/v1/events", async (req, res) => {
-  if (req.session && req.session.passport) {
-    const events = new PWCEvents();
-    const allEvents = await events.getAllEvents();
-    res.json({ events: allEvents }).end();
-  } else {
-    res.json({}).end();
-  }
+  // if (req.session && req.session.passport) {
+  const events = new PWCEvents();
+  const allEvents = await events.getAllEvents();
+  res.json({ events: allEvents }).end();
+  // } else {
+  // res.json({}).end();
+  // }
 });
 
 app.get("/*", (req, res) => {

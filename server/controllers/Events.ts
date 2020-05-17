@@ -24,7 +24,8 @@ export class PWCEvents {
 
     try {
       const events = await pool.query(query);
-      return events.rows[0];
+
+      return events.rows;
     } catch {
       return new Error("Could not retrieve events");
     }
