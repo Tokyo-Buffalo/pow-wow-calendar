@@ -11,9 +11,12 @@ import passport from "passport";
 
 import webpackConfig from "../webpack.config";
 
-import { User } from "./controllers/User";
+import { User } from "controllers/User";
+import { PWCEvents } from "controllers/PWCEvents";
 
 import "./passport";
+import { runSaga } from "redux-saga";
+import { Events } from "client/src/pages/Events";
 
 const app = express();
 const port = 3000;
@@ -31,8 +34,8 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      maxAge: 14 * 14 * 24 * 60 * 60 * 60
-    }
+      maxAge: 14 * 14 * 24 * 60 * 60 * 60,
+    },
   })
 );
 app.use(passport.initialize());
@@ -40,7 +43,7 @@ app.use(passport.session());
 app.use("/", express.static(path.join(__dirname, "../dist")));
 app.use(
   middleware(compiler, {
-    publicPath: "/__what"
+    publicPath: "/__what",
   })
 );
 app.use(require("webpack-hot-middleware")(compiler));
@@ -51,7 +54,7 @@ app.get(
   "/auth/google/callback*",
   passport.authenticate("google", {
     successRedirect: "/",
-    failureRedirect: "/login/error"
+    failureRedirect: "/login/error",
   })
 );
 
@@ -63,6 +66,16 @@ app.get("/auth", async (req, res) => {
     res.json({ ...userCamelCase, isLoggedIn: true }).end();
   } else {
     res.json({ isLoggedIn: false }).end();
+  }
+});
+
+app.get("/api/v1/events", async (req, res) => {
+  if (req.session && req.session.passport) {
+    const events = new PWCEvents();
+    const allEvents = await events.getAllEvents();
+    res.json({ allEvents }).end();
+  } else {
+    res.json({}).end();
   }
 });
 
