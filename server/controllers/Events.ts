@@ -15,6 +15,10 @@ interface PWCEvent {
 type EventsType = Array<PWCEvent>;
 
 export class PWCEvents {
+  private static instance: PWCEvents;
+
+  private events: EventsType | null = null;
+
   async getAllEvents(): Promise<EventsType | Error> {
     const query = "SELECT * FROM events;";
 

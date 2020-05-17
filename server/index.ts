@@ -12,7 +12,7 @@ import passport from "passport";
 import webpackConfig from "../webpack.config";
 
 import { User } from "controllers/User";
-import { PWCEvents } from "controllers/PWCEvents";
+import { PWCEvents } from "controllers/Events";
 
 import "./passport";
 import { runSaga } from "redux-saga";
@@ -46,6 +46,7 @@ app.use(
     publicPath: "/__what",
   })
 );
+
 app.use(require("webpack-hot-middleware")(compiler));
 
 app.get("/auth/google", passport.authenticate("google", { scope: ["openid email"] }));
@@ -73,7 +74,7 @@ app.get("/api/v1/events", async (req, res) => {
   if (req.session && req.session.passport) {
     const events = new PWCEvents();
     const allEvents = await events.getAllEvents();
-    res.json({ allEvents }).end();
+    res.json({ events: allEvents }).end();
   } else {
     res.json({}).end();
   }
