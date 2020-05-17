@@ -6,43 +6,33 @@ import configureStore from "redux-mock-store";
 
 const mockStore = configureStore([]);
 
-function getState(state = {}) {
-  return mockStore({
+function renderComponent(state = {}) {
+  const store = mockStore({
     user: {
       ...state,
     },
   });
-}
 
-test("Should not render component", () => {
-  const intialState = {
-    user: {
-      hasLoaded: false,
-    },
-  };
-
-  const store = mockStore(intialState);
-
-  const { queryByTestId } = render(
+  return render(
     <Provider store={store}>
       <Home />
     </Provider>
   );
+}
+
+test("Should not render component", () => {
+  const { queryByTestId } = renderComponent({
+    hasLoaded: true
+  });
 
   expect(queryByTestId(/login-button/i)).toBeNull();
 });
 
 test("Should render login button", () => {
-  const store = getState({
+  const { getByTestId } = renderComponent({
     hasLoaded: true,
     isLoggedIn: false,
   });
-
-  const { getByTestId } = render(
-    <Provider store={store}>
-      <Home />
-    </Provider>
-  );
 
   const button = getByTestId("login-button");
 
