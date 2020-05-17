@@ -1,6 +1,6 @@
-import { User } from "../User";
-import { pool } from "./../../db/pool";
-import { createUsersTable } from "../../tests/utils";
+import { User } from "../../User";
+import { pool } from "../../../db/pool";
+import { createUsersTable } from "../../../tests/utils";
 
 const user = new User();
 let testUser: typeof user;
@@ -32,19 +32,4 @@ test("Gets the new user", async () => {
   await user.getUser(sub).then(async (res) => {
     await expect(res).toEqual(testUser);
   });
-});
-
-test("Fails to get user", async () => {
-  expect.assertions(1);
-
-  const errorMessage = "Could not retrieve user";
-  const expectedError = new Error(errorMessage);
-
-  await expect(user.getUser("1")).resolves.toEqual(expectedError);
-});
-
-test("Fails to find user", async () => {
-  expect.assertions(1);
-
-  await expect(user.findUser("1")).resolves.toEqual(false);
 });
