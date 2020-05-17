@@ -5,45 +5,37 @@ import { Home } from "../Home";
 import configureStore from "redux-mock-store";
 import { ExceptionMap } from "antd/lib/result";
 
-function getIntialStore(state = {}) {
-  return {
+const mockStore = configureStore([]);
+
+function renderComponent(state = {}) {
+  const intialState = {
     user: {
       state,
     },
   };
-}
 
-const mockStore = configureStore([]);
+  const store = mockStore(intialState);
 
-test("Should not render component", () => {
-  const state = getIntialStore({
-    hasLoaded: false,
-  });
-
-  const store = mockStore(state);
-
-  const { queryByTestId } = render(
+  return render(
     <Provider store={store}>
       <Home />
     </Provider>
   );
+}
+
+test("Should not render component", () => {
+  const { queryByTestId } = renderComponent({
+    hasLoaded: false,
+  });
 
   expect(queryByTestId(/login-button/i)).toBeNull();
 });
 
 test("Should render login button", () => {
-  const store = mockStore(
-    getIntialStore({
-      hasLoaded: true,
-      isLoggedIn: true,
-    })
-  );
-
-  render(
-    <Provider store={store}>
-      <Home />
-    </Provider>
-  );
+  renderComponent({
+    hasLoaded: true,
+    isLoggedIn: true,
+  });
 
   const button = screen.getByText("login-button");
   fireEvent.click(button);
