@@ -47,17 +47,6 @@ SET default_tablespace = '';
 
 SET default_with_oids = false;
 
---
--- Name: events; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.events (
-    id character varying(128) NOT NULL,
-    name character varying(128) NOT NULL,
-    created_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    modified_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP
-);
-
 
 --
 -- Name: users; Type: TABLE; Schema: public; Owner: -
@@ -72,12 +61,31 @@ CREATE TABLE public.users (
     is_admin boolean DEFAULT false
 );
 
+--
+-- Name: events; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.events (
+    name character varying(128) NOT NULL,
+    id character varying(128) NOT NULL,
+    description character varying(128),
+    created_by character varying(128),
+    locations character varying(128) ARRAY,
+    created_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    modified_date timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    start_date timestamp without time zone,
+    end_date timestamp without time zone,
+    organizers text ARRAY,
+    attendees text ARRAY,
+    FOREIGN KEY (created_by) REFERENCES public.users(id)
+);
+
 
 --
 -- Data for Name: events; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.events (id, name, created_date, modified_date) FROM stdin;
+COPY public.events (id, name, description, locations, created_date, modified_date, start_date, end_date) FROM stdin;
 \.
 
 
@@ -85,7 +93,7 @@ COPY public.events (id, name, created_date, modified_date) FROM stdin;
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.users (id, email, picture, created_date, modified_date, is_admin) FROM stdin;
+COPY public.users (id, email, picture, created_date, modified_date, is_admin, created_by) FROM stdin;
 \.
 
 
@@ -95,6 +103,8 @@ COPY public.users (id, email, picture, created_date, modified_date, is_admin) FR
 
 ALTER TABLE ONLY public.events
     ADD CONSTRAINT events_pkey PRIMARY KEY (id);
+    -- ADD CONSTRAINT created_by FOREIGN KEY (id)
+    --   REFERENCES users(id);
 
 
 --

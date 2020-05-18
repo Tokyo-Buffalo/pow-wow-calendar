@@ -74,7 +74,6 @@
   "scripts": {
     "dev:client": "node_modules/.bin/webpack-cli",
     "dev:server": "node_modules/.bin/ts-node-dev --respawn --transpileOnly -r tsconfig-paths/register server/index.ts",
-    "create-tables": "ts-node ./server/db/createTables.ts",
     "create-test-data": "./scripts/create-test-data.sh",
     "test": "npx jest --collect-coverage"
   },

@@ -4,12 +4,13 @@ interface PWCEvent {
   name: string;
   description: string;
   location: string;
-  startDate: string;
-  endDate: string;
-  createdAt: string;
-  updatedAt: string;
-  createdBy: string;
-  attendees: Array<{}>;
+  start_date: string;
+  end_date: string;
+  created_date: string;
+  modified_date: string;
+  created_by: string;
+  attendees: Array<string>;
+  organizers: Array<string>;
 }
 
 type EventsType = Array<PWCEvent>;
